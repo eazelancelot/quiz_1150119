@@ -1,0 +1,54 @@
+package com.example.quiz_1150119.constants;
+
+public enum Type {
+	
+	SINGLE("Single"),//
+	MULTI("Multi"),//
+	TEXT("Text");
+
+	private String type;
+
+	private Type(String type) {
+		this.type = type;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+	
+	public static boolean check(String input) {
+		/* 寫法1: */
+		/*values(): 會取出 enum 中所有的列舉 */
+		for(Type item : values()) {
+			if(input.equalsIgnoreCase(item.getType())) {
+				return true;
+			}
+		}
+		return false;
+		/* 寫法2: */
+//		if(input.equalsIgnoreCase(Type.SINGLE.getType())
+//				|| input.equalsIgnoreCase(Type.MULTI.getType())
+//				|| input.equalsIgnoreCase(Type.TEXT.getType())) {
+//			return true;
+//		}
+//		return false;
+	}
+	
+	public static boolean isChoice(String input) {
+		if(input.equalsIgnoreCase(Type.SINGLE.getType())//
+				|| input.equalsIgnoreCase(Type.MULTI.getType())) {
+			return true;
+		}
+		return false;
+	}
+	
+	public static boolean isSingleType(String input) {
+		return input.equalsIgnoreCase(Type.SINGLE.getType());
+		
+	}
+
+}
