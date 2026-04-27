@@ -6,7 +6,6 @@ import org.springframework.util.StringUtils;
 
 import com.example.quiz_1150119.constants.ReplyMessage;
 import com.example.quiz_1150119.dao.UserDao;
-import com.example.quiz_1150119.entity.User;
 import com.example.quiz_1150119.response.BasicRes;
 
 @Service
@@ -29,7 +28,6 @@ public class UserService {
 			return new BasicRes(ReplyMessage.PARAM_AGE_ERROR.getCode(), //
 					ReplyMessage.PARAM_AGE_ERROR.getMessage());
 		}
-		User entity = userDao.save(new User(email, name, phone, age));
 		userDao.insert(email, name, phone, age);
 		return new BasicRes(ReplyMessage.SUCCESS.getCode(), ReplyMessage.SUCCESS.getMessage());
 	}
